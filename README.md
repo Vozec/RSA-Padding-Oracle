@@ -39,4 +39,8 @@ print(long_to_bytes(m))
 
 *check_padding* is a function that takes int as input and returns if the decrypted int is PKCS conforming
 
+# Refs:
+- https://archiv.infsec.ethz.ch/education/fs08/secsem/bleichenbacher98.pdf
+- https://eprint.iacr.org/2018/1173.pdf
+- https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-3/
 
