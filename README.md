@@ -21,7 +21,7 @@ options:
 
 # Input: 
 
-*check_padding* is a function that takes integer as input and returns if the decrypted integer is PKCS1.5 conforming.
+*check_padding* is a function that takes integer as input and returns if the decrypted integer is PKCS1.5 conforming.  
 ⚠️**Warning: This function as to be edited to match your challenge context.**
 
 # References:
