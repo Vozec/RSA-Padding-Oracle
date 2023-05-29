@@ -1,45 +1,29 @@
 # RSA-Padding-Oracle
+
 This tool is an implementation of the Bleichenbacher's attack on RSA PKCS1.5 padding
+
 # Usage :
 
-```python
-from RSA_Padding_Attack import *
+```
+$ ./example_exploit.py  -h
+usage: example_exploit.py [-h] [-v] [--debug] -H HOST -P PORT -e EXPONENT -c CIPHERTEXT -n MODULUS
 
-from Crypto.Util.number import long_to_bytes
-from pwn import *
-context.log_level = 'critical'
-
-class Oracle:
-	def __init__(self,url,port):
-		self.url = url
-		self.port = port
-		self.p = remote(self.url,self.port)
-
-	def check_padding(self,ct: int) -> bool:
-		self.p.send(ltb(ct))
-		return b'padding is ok' in self.p.recvline()
-
-oracle = Oracle(
-	url = '...',
-	port = ...
-)
-
-exploit = Bleichenbacher_Padding_Attack(
-	e = ...,
-	c = ...,
-	n = ...,
-	oracle = oracle,
-	verbose = True
-)
-m = exploit.attack()
-print(long_to_bytes(m))
+options:
+  -h, --help            show this help message and exit
+  -v, --verbose         Verbose mode. (default: False)
+  --debug               Debug mode.
+  -H HOST, --host HOST  Host to connect to.
+  -P PORT, --port PORT  Port to connect to.
+  -e EXPONENT, --exponent EXPONENT
+  -c CIPHERTEXT, --ciphertext CIPHERTEXT
+  -n MODULUS, --modulus MODULUS
 ```
 
 # Input: 
 
-*check_padding* is a function that takes int as input and returns if the decrypted int is PKCS conforming
+*check_padding* is a function that takes int as input and returns if the decrypted integer is PKCS1.5 conforming.
 
-# Refs:
+# References:
 - https://archiv.infsec.ethz.ch/education/fs08/secsem/bleichenbacher98.pdf
 - https://eprint.iacr.org/2018/1173.pdf
 - https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-3/
