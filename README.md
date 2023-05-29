@@ -4,7 +4,7 @@ This tool is an implementation of the Bleichenbacher's attack on RSA PKCS1.5 pad
 
 # Usage :
 
-```
+```bash
 $ ./example_exploit.py  -h
 usage: example_exploit.py [-h] [-v] [--debug] -H HOST -P PORT -e EXPONENT -c CIPHERTEXT -n MODULUS
 
@@ -21,7 +21,8 @@ options:
 
 # Input: 
 
-*check_padding* is a function that takes int as input and returns if the decrypted integer is PKCS1.5 conforming.
+*check_padding* is a function that takes integer as input and returns if the decrypted integer is PKCS1.5 conforming.
+⚠️**Warning: This function as to be edited to match your challenge context.**
 
 # References:
 - https://archiv.infsec.ethz.ch/education/fs08/secsem/bleichenbacher98.pdf
